@@ -1,0 +1,14 @@
+version: '3'
+services:
+  next-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app 
+    ports:
+      - "3000:3000"
+    tty: true   # -tの設定
+    stdin_open: true  #-iの設定
+    command: sh -c 'cd hello-next && yarn dev'
+    # command: cd hello-next && yarn start
